@@ -19,7 +19,7 @@ void main()
 {
     int n, i;
 
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
 
     printf("How many nodes do you want to append? ");
     scanf("%d", &n);
