@@ -15,7 +15,7 @@ void display();
 
 void main()
 {
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
 
     append();
     append();
