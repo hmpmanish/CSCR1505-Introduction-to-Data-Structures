@@ -10,6 +10,23 @@ struct node
 
 struct node *ROOT = NULL;
 
+void append();
+void display();
+
+void main()
+{
+    clrscr();
+
+    append();
+    append();
+    append();
+    append();
+
+    display();
+
+    getch();
+}
+
 void append()
 {
     struct node *temp;
@@ -49,18 +66,4 @@ void display()
         p = p->link;
     }
     printf("NULL");
-}
-
-void main()
-{
-    clrscr();
-
-    append();
-    append();
-    append();
-    append();
-
-    display();
-
-    getch();
 }
