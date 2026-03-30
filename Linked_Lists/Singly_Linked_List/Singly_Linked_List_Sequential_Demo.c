@@ -17,7 +17,7 @@ struct node *ROOT=NULL;
 
 void main()
 {
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
     append();
     append();
     append();
