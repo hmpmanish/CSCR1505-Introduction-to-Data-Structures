@@ -12,7 +12,7 @@ void main()
     struct node *root = NULL, *temp, *newnode;
     int n, i, count = 0;
 
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
 
     printf("Enter number of nodes: ");
     scanf("%d", &n);
