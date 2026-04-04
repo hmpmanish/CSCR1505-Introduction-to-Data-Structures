@@ -173,7 +173,7 @@ void main()
 {
     int choice;
 
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
 
     while(1)
     {
