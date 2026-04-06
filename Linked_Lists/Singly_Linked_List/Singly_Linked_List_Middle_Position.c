@@ -20,9 +20,9 @@ void main()
 {
     int i,n;
     int ch;
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
     printf("WELCOME TO LINKED LIST\n");
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
     while(1)
     {
 	printf("Enter 1 for append\n");
