@@ -1,0 +1,3 @@
+CSCR1505 Introduction to Data Structures
+Laboratory Demonstration File
+This file is used to demonstrate file reading operations in C.

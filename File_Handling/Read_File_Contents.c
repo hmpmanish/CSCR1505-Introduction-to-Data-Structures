@@ -6,7 +6,7 @@ void main()
     FILE *fp;
     char ch;
     
-    clrscr();
+    // clrscr(); // Removed for standard compiler compatibility
     
     fp = fopen("demo.txt", "r");
     
