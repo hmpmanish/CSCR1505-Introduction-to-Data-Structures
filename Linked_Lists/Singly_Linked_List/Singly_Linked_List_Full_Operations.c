@@ -23,7 +23,7 @@ void reverse();
 void main()
 {
  int ch, n, i;
- clrscr();
+ // clrscr();
 
  while (1)
  {
