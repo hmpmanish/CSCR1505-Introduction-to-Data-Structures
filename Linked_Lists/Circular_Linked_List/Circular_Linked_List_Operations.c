@@ -18,7 +18,7 @@ void del();
 void main()
 {
  int n,i;
- clrscr();
+ //clrscr();
  printf("How many node you want to append: ");
  scanf("%d",&n);
  for(i=1;i<=n;i++)
