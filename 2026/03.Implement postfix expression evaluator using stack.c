@@ -1,19 +1,26 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int stack[100];
+#define MAX 100
+
+int stack[MAX];
 int top = -1;
 
-void push(int x)
+void push(int value)
 {
-    stack[++top] = x;
+    if (top == MAX - 1)
+    {
+        printf("Stack Overflow!\n");
+        return;
+    }
+    stack[++top] = value;
 }
 
 int pop()
 {
     if (top == -1)
     {
-        printf("Stack Underflow\n");
+        printf("Stack Underflow!\n");
         return -1;
     }
     return stack[top--];
@@ -21,58 +28,63 @@ int pop()
 
 int main()
 {
-    char postfix[100];
-    int i = 0, op1, op2, result;
+    char postfix[MAX];
+    int i, operand1, operand2, result;
 
-    printf("Enter Postfix Expression: ");
+    printf("Enter postfix expression : ");
     scanf("%s", postfix);
 
-    while (postfix[i] != '\0')
+    for (i = 0; postfix[i] != '\0'; i++)
     {
         if (isdigit(postfix[i]))
         {
-            push(postfix[i] - '0');   // Convert character to integer
+            push(postfix[i] - '0');   
         }
         else
         {
-            op2 = pop();
-            op1 = pop();
+            operand2 = pop();
+            operand1 = pop();
 
             switch (postfix[i])
             {
                 case '+':
-                    result = op1 + op2;
+                    push(operand1 + operand2);
                     break;
-                case '-':
-                    result = op1 - op2;
-                    break;
-                case '*':
-                    result = op1 * op2;
-                    break;
-                case '/':
-                    result = op1 / op2;
-                    break;
-                case '%':
-                    result = op1 % op2;
-                    break;
-                case '^':
-                {
-                    result = 1;
-                    for (int j = 0; j < op2; j++)
-                        result *= op1;
-                    break;
-                }
-                default:
-                    printf("Invalid Operator\n");
-                    return 0;
-            }
 
-            push(result);
+                case '-':
+                    push(operand1 - operand2);
+                    break;
+
+                case '*':
+                    push(operand1 * operand2);
+                    break;
+
+                case '/':
+                    if (operand2 == 0)
+                    {
+                        printf("Division by zero is not allowed!\n");
+                        return 1;
+                    }
+                    push(operand1 / operand2);
+                    break;
+
+                case '%':
+                    push(operand1 % operand2);
+                    break;
+
+                default:
+                    printf("Invalid operator!\n");
+                    return 1;
+            }
         }
-        i++;
     }
 
-    printf("Result = %d\n", pop());
+    result = pop();
+
+    if (top == -1)
+        printf("Result = %d\n", result);
+    else
+        printf("Invalid Postfix Expression!\n");
 
     return 0;
 }
